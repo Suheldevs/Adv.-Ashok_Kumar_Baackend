@@ -14,21 +14,6 @@ const inquirySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    service: {
-      type: String,
-    },
-    location: {
-      type: String,
-    },
-    siteArea: {
-      type: String,
-    },
-    projectType: {
-      type: String,
-    },
-    buildUpArea: {
-      type: String,
-    },
     message: {
       type: String,
       required: true,

@@ -2,7 +2,7 @@ import Inquiry from '../model/inquiry.model.js';
 import nodemailer from 'nodemailer';
 export const createInquiry = async (req, res) => {
   try {
-    const { name, email, phone, service, location, siteArea, projectType, buildUpArea, message } = req.body;
+    const { name, email, phone, message } = req.body;
 
     // Validate required fields
     if (!name || !email || !phone || !message) {
@@ -19,11 +19,6 @@ export const createInquiry = async (req, res) => {
       name,
       email,
       phone,
-      service,
-      location,
-      siteArea,
-      projectType,
-      buildUpArea,
       message,
     });
 
@@ -43,12 +38,12 @@ export const createInquiry = async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: 'suhel.codecrafter@gmail.com',
-      subject: 'SGSS Website New Inquiry Received',
+      subject: 'Ashok Kumar Website New Inquiry Received',
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 20px;">
           <h2 style="color: #0073e6;">New Inquiry Received</h2>
           <p>Dear Director,</p>
-          <p>You have received a new inquiry from the website <a href="https://SGSS-architect.netlify.app/" target="_blank">https://SGSS-architect.netlify.app</a>. Below are the details:</p>
+          <p>You have received a new inquiry from the website <a href="https://adv-ashok-kumar.netlify.app/" target="_blank">https://adv-ashok-kumar.netlify.app</a>. Below are the details:</p>
           
           <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
             <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Name:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${name}</td></tr>
