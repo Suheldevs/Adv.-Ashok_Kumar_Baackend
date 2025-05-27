@@ -18,6 +18,9 @@ const inquirySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    service: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

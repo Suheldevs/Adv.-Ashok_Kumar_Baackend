@@ -2,10 +2,10 @@ import Inquiry from '../model/inquiry.model.js';
 import nodemailer from 'nodemailer';
 export const createInquiry = async (req, res) => {
   try {
-    const { name, email, phone, message } = req.body;
+    const { name, email, phone, message,service } = req.body;
 
     // Validate required fields
-    if (!name || !email || !phone || !message) {
+    if (!name || !email || !phone || !message || !service) {
       return res.status(400).json({ success: false, message: 'Name, Email, Phone, and Message are required.' });
     }
 
@@ -20,6 +20,7 @@ export const createInquiry = async (req, res) => {
       email,
       phone,
       message,
+      service
     });
 
     await newInquiry.save();
@@ -50,6 +51,7 @@ export const createInquiry = async (req, res) => {
             <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Email:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${email}</td></tr>
             <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Phone:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${phone}</td></tr>
             <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Message:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${message}</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Service:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${service}</td></tr>
           </table>
     
           <p>Please respond to this inquiry as soon as possible.</p>
